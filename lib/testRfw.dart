@@ -21,10 +21,10 @@ class _ExampleState extends State<Example> {
   void getData() async {
     final snapshot = await FirebaseFirestore.instance.collection('item').get();
     var data = snapshot.docs.elementAt(0);
-    _data.update('greet', <String, Object>{'name': 'World'});
     Data str = Data.fromMap(data.data());
     _runtime.update(coreName, createCoreWidgets());
     _runtime.update(mainName, parseLibraryFile(str.code));
+    _data.update('greet', <String, Object>{'name': 'World'});
   }
 
   @override
